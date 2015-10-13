@@ -698,7 +698,8 @@ void loadaware_mesh( const Router *r, const Flit *f, int in_channel, OutputSet *
   }
   assert(((f->vc >= vcBegin) && (f->vc <= vcEnd)) || (inject && (f->vc < 0)));
 
-  if ( !inject && f->watch ) {
+  //cout << "Router Occupancy for input 0: " << r->GetBufferOccupancy(0) << endl;
+  if ( !inject ) {
     *gWatchOut << GetSimTime() << " | " << r->FullName() << " | "
 	       << "Adding VC range [" 
 	       << vcBegin << "," 
@@ -706,7 +707,8 @@ void loadaware_mesh( const Router *r, const Flit *f, int in_channel, OutputSet *
 	       << " at output port " << out_port
 	       << " for flit " << f->id
 	       << " (input port " << in_channel
-	       << ", destination " << f->dest << ")"
+	       << ", destination " << f->dest 
+               << ", buffer occupancy "<< r->GetBufferOccupancy(0) << ")"
 	       << "." << endl;
   }
   

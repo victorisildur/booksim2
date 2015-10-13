@@ -276,13 +276,13 @@ BookSimConfig::BookSimConfig( )
 
   _int_map["viewer_trace"] = 0;
 
-  AddStrField("watch_file", "");
+  AddStrField("watch_file", "watchfile.out");
   
   AddStrField("watch_flits", "");
   AddStrField("watch_packets", "");
   AddStrField("watch_transactions", "");
 
-  AddStrField("watch_out", "");
+  AddStrField("watch_out", "watchfile.out");
 
   AddStrField("stats_out", "");
 
